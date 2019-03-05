@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+         #title{
+            font-family:verdana;
+            margin-left: 30px;
+         }
+        
+        label.titles{
+            font-weight: 100px;
+            color:#1574C4;
+            font-weight: bold;
+            padding-bottom: 10px;
+         }
+         table{
+             margin-left: 50px;
+            
+             width: 100%;
+
+         }
+         #id{
+            margin-left: 250px;
+             font-weight: bold;
+             font-size: 12px;
+             text-align: right;
+         }
+         #st{
+             font-weight: bold;
+             font-size: 12px;
+             padding-bottom: 15px;
+         }
+         td.t{
+            padding-top: 10px;
+            font-family:verdana;
+            font-size: 11px;
+            color: #44556E;
+            width:10%;
+         }
+         td.tf{
+            padding-top: 10px;
+            font-family:verdana;
+            font-size: 11px;
+            color: #44556E;
+            width: 40%;
+         }
+         td.tfc{
+            padding-top: 10px;
+            font-family:verdana;
+            font-size: 11px;
+            color: #44556E;
+            width: 40%;
+            padding-top: 25px;
+            text-align: center;
+         }
+         td.t2{
+            padding-bottom: 5px;
+            padding-left: 10px;
+            font-size: 13px;
+            font-family:Arial;
+            border-bottom-style: dotted;
+            border-bottom-width: 3px;
+            border-bottom-color:#BCBED1;
+         }
+         img{
+            width:180px;
+            height:70px;
+            
+         }
+         input.inputs{
+             border: none;
+             background-color: none;
+         }
+         </style>
+    </head>
+    <body>
+        <br>
+        <div>
+                <table>
+                    <tr class="rows"> 
+                        <td><img src="/api/assets/iTexico_logo.png" alt="Logo"></td>
+                        <td></td><td></td>
+                    </tr>
+                    <tr class="rows">
+                         <td colspan="3"><label id="title" class="titles">Travel & Expenses Report</label></td><td></td> <td></td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="tf"></td> <td class="t"></td>
+                        <td id="id" class="tf">Report:  <label>{{.IDReport}}</label></td>
+                    </tr>
+                    <tr class="rows">
+                        <td id ="st" class="tf">Status:  {{if eq (Deref .ReportStatus) "P"}} 
+                                                            <label style="color:#DB8721" >Pending</label> 
+                                                            {{else if eq (Deref .ReportStatus) "A"}} 
+                                                            <label style="color:#34A141" >Approved</label> 
+                                                            {{else if eq (Deref .ReportStatus) "R"}} 
+                                                            <label style="color:#CF0000" >Rejected</label>  {{end}}</label></td> 
+                        <td class="t"></td> <td class="tf"></td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="tf">Employee's name </td> <td class="t"></td> <td class="tf">Employee's email</td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="t2"> <label>{{.Employee.Name}}</label></td> 
+                        <td class="t2"></td> 
+                        <td class="t2"><label>{{.Employee.Email}}</label></td>
+                    </tr>
+                    <tr class="rows">
+                         <td class="tf">Employee's phone number</td> <td class="t"></td> <td class="tf"></td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="t2"><label>{{.Employee.PhoneNumber}}</label></td> 
+                        <td class="t2"></td> <td class="t2"></td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="tf">Client's name</td> <td class="t"></td> <td class="tf">Client's address</td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="t2"><label>{{.Client.Name}}</label></td> 
+                        <td class="t2"></td> 
+                        <td class="t2">{{.Client.Address}}</td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="tf">Origin place</td><td class="t"></td><td class="tf">Destination place</td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="t2"><label >{{.OriginPlace}}</td>
+                        <td class="t2"></td>
+                        <td class="t2"><label >{{.DestinationPlace}}</label></td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="tf">Departure date</td><td class="t"></td><td class="tf">Return date</td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="t2"><input class="inputs" type="date" value={{.DepartureDate}}></input></td>
+                        <td class="t2"></td>
+                        <td class="t2"><input class="inputs" type="date" value={{.ReturnDate}} ></input></td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="tf">Team name</td><tdclass="t"></td><tdclass="tf"></td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="t2"><label>{{.TeamName}}</label></td><td></td><td></td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="tf">Travel purpose</td><td class="t"></td><td class="tf">Client purpose</td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="t2"><label>{{.Purpose}}</label></td>
+                        <td class="t2"></td>
+                        <td class="t2"><label></label></td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="tf">Special requirements</td><td class="t"></td><td class="tf"></td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="t2"><label>{{.SpecialRequirements}}</label></td><td class="t2"></td><td class="t2"></td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="tf">Operation date</td><td class="t"></td><td class="tf"></td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="t2"><input class="inputs" type="date" value={{.OperationDate}} ></input></td><td></td><td></td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="tf">Operational Arrangement</td><td class="t"></td><td class="tf"></td>
+                    </tr>
+                    <tr class="rows">
+                        <td class="t2"><label>{{.OperationArrangement}}</label></td><td class="t2"></td><td class="t2"></td>
+                    </tr>
+                    <tr class="rows">
+                            <td class="tfc"> International travel: 
+                            <label>{{if eq ( DerefBool .IsInternational) true}} Yes {{else}} No {{end}}</label>
+                            </td>
+                            <td class="t"></td>
+                            <td class="tfc">Travel sponsored by the client:
+                            <label>{{if eq ( DerefBool .IsSponsored) true}} Yes {{else}} No {{end}}</label>
+                            </td>
+                          
+                    </tr>
+                </table>
+        </div>
+    </body>
+</html>

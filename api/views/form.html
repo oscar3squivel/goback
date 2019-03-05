@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Report PDF</title>
+    </head>
+    <body>
+        <div style="align-self: center"> Travel Request Form <input type="text" name="Idreport" disabled="disabled" value={{.IDReport}}><br></div>
+        <br>
+        <div>
+                <form action="">
+                    Traveling from: <input type="text" name="originPlace" disabled="disabled" value={{.OriginPlace}}><br>
+                    Traveling to: <input type="text" name="destinationPlace" disabled="disabled" value={{.DestinationPlace}}><br>
+                    Name of the person traveling: <input type="text" name="name" disabled="disabled"><br>
+                    Arrival date / Preferred departure time: <input type="date" name="arrivalDate" disabled="disabled"><br>
+                    Returning date / Preferred departure time: <input type="date" name="departureDate" disabled="disabled"><br>
+                    Team: <input type="text" name="teamName" disabled="disabled"><br>
+                    Delivery Owner: <input type="text" name="idLeader" disabled="disabled"><br>
+                    Purpose of travel: <input type="text" name="clientPurpose" disabled="disabled"><br>
+                    Paid for client: <input type="radio" name="isSponsored" disabled="disabled"><br>
+                    Name of client: <input type="text" name="name" disabled="disabled"><br>
+                    Client´s office address: <input type="address" name="destiny" disabled="disabled"><br>
+                    Transportation: <input type="text" name="concept" disabled="disabled"><br>
+                    iTexico email: <input type="text" name="email" disabled="disabled"><br>
+                    Cellphone number:<input type="text" name="phoneNumber" disabled="disabled"><br> 
+                    Date of Birth:<input type="date" name="birthDate" disabled="disabled"><br>
+                    Nationality:<input type="text" name="nationality" disabled="disabled"><br>
+                    In case of emergency call:<input type="text" name="emergencyNumber" disabled="disabled"><br>
+                    Special requirements:<input type="text" name="specialRequirements" disabled="disabled"><br>
+                    Date of acknowledgement from operations:<input type="date" name="operationDate" disabled="disabled"><br>
+                    Operations team making travel arrangements:<input type="text" name="operationalArrangement" disabled="disabled"><br>
+                    Date of acknowledgement from Delivery Manager:<input type="date" name="statusChangeDate" disabled="disabled"><br>
+                    Delivery Manager authorizing:<input type="text" name="reportStatus" disabled="disabled"><br>
+                </form>
+        </div>
+    </body>
+</html>
